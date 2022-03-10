@@ -28,7 +28,7 @@ namespace DemoConditionalAndMethods
 
         private static bool IsWithinRange(int num, int target, int range)
         {
-            return (num - target) <= range; //need absolute
+            return (num - target) <= range && (target - num) >= -range; //need absolute
         }
     }
 }
