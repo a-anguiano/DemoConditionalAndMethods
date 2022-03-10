@@ -18,10 +18,12 @@ namespace DemoConditionalAndMethods
             Console.WriteLine("What is the range?");
             int range = int.Parse(Console.ReadLine());
 
+
+            string results = IsWithinRange(startingNum, targetNum, range) ? "It is within range." : "It isn't within range.";
             //Write the result by calling IsWithinRange
-            
+            //Print an appropriate string based upon the boolean results from IsWithinRange 
             Console.WriteLine($"Given a starting number of {startingNum} and a target number of {targetNum}. " +
-                $"It's {IsWithinRange(startingNum, targetNum, range)}");
+                $"{results}");
         }
 
         private static bool IsWithinRange(int num, int target, int range)
