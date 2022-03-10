@@ -6,29 +6,25 @@ namespace DemoConditionalAndMethods
     {
         static void Main()
         {
-            //Ask the user for the initial num
-            Console.WriteLine("What is the initial number? ");
-            int startingNum = int.Parse(Console.ReadLine());
+            
+            Console.Write("Do we have power? (y/n)");
+            bool hasPower = Console.ReadLine().ToLower() == "y";
 
-            //Ask the user for the target
-            Console.WriteLine("What is the target? ");
-            int targetNum = int.Parse(Console.ReadLine());
+            Console.WriteLine("Do we have paper? (y/n)");
+            bool hasPaper = Console.ReadLine().ToLower() == "y";
 
-            //Ask the user for the range
-            Console.WriteLine("What is the range?");
-            int range = int.Parse(Console.ReadLine());
+            Console.WriteLine("What's the ink level?");
+            int inkLevel = int.Parse(Console.ReadLine());
 
+            PrintDoc(hasPower, hasPaper, inkLevel);
 
-            string results = IsWithinRange(startingNum, targetNum, range) ? "It is within range." : "It isn't within range.";
-            //Write the result by calling IsWithinRange
-            //Print an appropriate string based upon the boolean results from IsWithinRange 
-            Console.WriteLine($"Given a starting number of {startingNum} and a target number of {targetNum}. " +
-                $"{results}");
         }
 
-        private static bool IsWithinRange(int num, int target, int range)
+        //Print a document haPower, hasPaper, and inkLevel >= 10
+        private static void PrintDoc(bool hasPower, bool hasPaper, int inkLevel)
         {
-            return (num - target) <= range && (target - num) >= -range; //need absolute
+            string result = hasPaper && hasPower && inkLevel >= 10 ? "Printing" : "Unable to print";
+            Console.Write(result);
         }
     }
 }
